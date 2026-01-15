@@ -3,20 +3,20 @@
 
 ## Table of Contents
 
-- 🗺️ [Project Scope](#🗺️-project-scope)
-- 💡 [Introduction](#💡-introduction)
-- ⭐️ [Features](#⭐️-features)
-- 🌐 [API](#🌐-api)
-- 🏃‍♂️ [Run the App](#🏃‍♂️-run-the-app)
-- ☁️ [Deployment](#☁️-deployment-with-github-actions)
-- ⛔️ [Known Issues](#⛔️-known-issues)
-- 🔧 [Testing](#🔧-testing)
-- 🖥️ [Code Documentation](#🖥️-code-documentation)
-- ✨ [Credits](#✨-credits)
-- 🖊️ [References](#🖊️-references)
+- 🗺️ [Project Scope](#project-scope)
+- 💡 [Introduction](#introduction)
+- ⭐️ [Features](#features)
+- 🌐 [API](#api)
+- 🏃‍♂️ [Run the App](#run-the-app)
+- ☁️ [Deployment](#deployment-with-github-actions)
+- ⛔️ [Known Issues](#known-issues)
+- 🔧 [Testing](#testing)
+- 🖥️ [Code Documentation](#code-documentation)
+- ✨ [Credits](#credits)
+- 🖊️ [References](#references)
 
 
-## 🗺️ Project Scope
+## Project Scope
 1. GitHub
 2. MySQL, maven, docker, CRUD, API anrop, etc., 
     - Simple API call (weather, price, synonyms, etc.,)
@@ -24,34 +24,37 @@
     - `Example:` *It's a cold day today, perfect weather for a brisk walk in the park!*
 4. Creative / extra work
 
-## 💡 Introduction
+### 🌿 Branches 
 <!-- TODO -->
 
-## ⭐️ Features
+## Introduction
 <!-- TODO -->
 
-## 🌐 API
+## Features
 <!-- TODO -->
 
-## 🏃‍♂️ Run the App
+## API
 <!-- TODO -->
 
-## ☁️ Deployment
+## Run the App
 <!-- TODO -->
 
-## ⛔️ Known Issues
+## Deployment
 <!-- TODO -->
 
-## 🔧 Testing
+## Known Issues
 <!-- TODO -->
 
-## 🖥️ Code Documentation
+## Testing
 <!-- TODO -->
 
-## ✨ Credits
+## Code Documentation
 <!-- TODO -->
 
-## 🖊️ References
+## Credits
+<!-- TODO -->
+
+## References
 
 
 
