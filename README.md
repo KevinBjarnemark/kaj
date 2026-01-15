@@ -15,7 +15,6 @@
 - ✨ [Credits](#credits)
 - 🖊️ [References](#references)
 
-
 ## Project Scope
 1. GitHub
 2. MySQL, maven, docker, CRUD, API anrop, etc., 
@@ -37,7 +36,20 @@
 <!-- TODO -->
 
 ## Run the App
-<!-- TODO -->
+
+### 1. 🔧 Configure MySQL
+
+1. 📄 Create a file called `.env` at root level
+    - ❕ View example file [.env.example](.env.example)
+2. Add your **password**, **username**, etc., 
+
+> ⚠️ This file is personal and will **not** be pushed to GitHub!
+
+### 2. 🏃 Run application
+
+1. Run `mvnw spring-boot:run` from root folder
+2. Go to  [http://localhost:8080/welcome/yourname](http://localhost:8080/welcome/yourname)
+3. Web browser should display: `Welcome <yourname>! 😃`
 
 ## Deployment
 <!-- TODO -->
@@ -55,6 +67,3 @@
 <!-- TODO -->
 
 ## References
-
-
-
