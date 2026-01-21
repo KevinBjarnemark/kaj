@@ -3,7 +3,7 @@ spring:
     name: kaj
 
   datasource:
-    url: jdbc:mysql://localhost:3306/localdb?serverTimezone=UTC
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?serverTimezone=UTC
     username: ${DB_USER:root}
     password: ${DB_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
