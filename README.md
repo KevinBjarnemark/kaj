@@ -37,7 +37,7 @@
 
 ## Run the App
 
-### 1. 🔧 Configure MySQL
+### 1. 🔧 Configure environment variables
 
 1. 📄 Create a file called `.env` at root level
     - ❕ View example file [.env.example](.env.example)
@@ -45,11 +45,20 @@
 
 > ⚠️ This file is personal and will **not** be pushed to GitHub!
 
-### 2. 🏃 Run application
+### 2. 📦 Create docker containers  
+- Run `docker-compose up -d`  
+
+### 3. 🏃 Run application
 
 1. Run `mvnw spring-boot:run` from root folder
 2. Go to  [http://localhost:8080/welcome/yourname](http://localhost:8080/welcome/yourname)
 3. Web browser should display: `Welcome <yourname>! 😃`
+
+### 4. 🛢️ (Optional)  Run MySql directly
+1. Run `docker exec -it mySqlContainer bash`
+2. Run `mysql -uroot -p`
+3. Type in your password (see .env file)
+4. Run any SQL command directly
 
 ## Deployment
 <!-- TODO -->
@@ -70,5 +79,12 @@
 
 
 
-## Draft
+
+
+
+  
+
+
+
+
 
