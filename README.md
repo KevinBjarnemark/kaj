@@ -15,16 +15,57 @@
 - ✨ [Credits](#credits)
 - 🖊️ [References](#references)
 
-## Project Scope
-1. GitHub
-2. MySQL, maven, docker, CRUD, API anrop, etc., 
-    - Simple API call (weather, price, synonyms, etc.,)
-3. Modify the response 
-    - `Example:` *It's a cold day today, perfect weather for a brisk walk in the park!*
-4. Creative / extra work
+## Project Scope 
+
+### ⚠️ `INNAN PRESENTATION`
+- ❕❕ Ta bort kommentarer
+- Ta bort denna sektion innan presentation
+
+### 👮 Grupp regler
+- Skriv i gruppen innan du börjar med en feature
+
+### 🔨 Uppdrag (postitlappar)
+- ✔️ Maven
+- ✔️ Docker
+- ✔️ Frontend (NextJS)
+- ❌❕ Alla i gruppen har projektet implementerat   
+
+### 🔨 Kommande uppdrag
+- ❌ MySQL 
+    - ❌ Behöver använda MySql
+    - ❌ (CRUD)
+- ❌ API anrop
+    - ❌ Simple API call (weather, price, synonyms, etc.,)
+    - ❌ Modify the response 
+        - `Example:` *It's a cold day today, perfect weather for a brisk walk in the park!*
+- ❌ Creative / extra work
+
+### 💡 Projekt ideer
+- Väder applikation
+    - ❌ CRUD operationer blir svårt  
+    - ✔️ Behöver inte tänka på tidszoner    
+    - ❌ Vad kan man använda Javas standardbibliotek till? (hashmaps etc.,)
+- Veckoschema  
+    - ✔️ Lätt med CRUD operationer    
+    - ❌ Blir svårt med tidszoner   
+    - ✔️ Lätt att använda Javas standardbibliotek (hashmaps etc.,)
+- Fiktiva produkter 
+    - ✔️ Lätt med CRUD operationer   
+    - ✔️ Behöver inte tänka på tidszoner    
+    - ✔️ Lätt att använda Javas standardbibliotek (hashmaps etc.,)
+
+### Kursmål
+- ❌ Ge exempel på hur `Javas standardbibliotek` kan användas för att lösa olika programmeringsuppgifter  
+    - ❌ Behöver arrayList, hashmaps, etc., 
+- ❌ Redogöra för hur olika ramverk kan använda för att lösa olika programmeringsuppgifter inom utveckling med Java
+- ❌ Redogöra för datakommunikation och utveckling av nätverksapplikationer
+- ❌ Redogöra för metoder och verktyg för att utveckla i en containermiljö
+- ❌ Redogöra för driftsättning av program/system
+- ❌ Redogöra för terminologi på engelska inom utveckling med Java
 
 ### 🌿 Branches 
-<!-- TODO -->
+- Alla har varsin branch efter dens namn
+    - ❕ Denna är till för att experimentera, vi gör feature branches sen
 
 ## Introduction
 <!-- TODO -->
@@ -39,7 +80,7 @@
 
 ### 1. 🔧 Configure environment variables
 1. 📄 Create a file called `.env` in 📁 `/backend`
-    - ❕ View example file [.env.example](.env.example)
+    - ❕ View example file [.env.example](backend/.env.example)
 2. Add your **password**, **username**, etc., 
 
 > ⚠️ This file is personal and will **not** be pushed to GitHub!
@@ -48,6 +89,7 @@
 1. Ensure you're in the 📁 `/backend` folder (terminal) 
     - `cd backend`   
 2. Run `docker-compose up -d`  
+    - ⚠️ Run this in Ubunto terminal, if you're using WSL
 
 ### 3. 🏃 Run application
 1. Ensure you're in the 📁 `/backend` folder (in terminal) 
