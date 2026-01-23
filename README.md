@@ -35,30 +35,44 @@
 ## API
 <!-- TODO -->
 
-## Run the App
+## Run Backend
 
 ### 1. 🔧 Configure environment variables
-
-1. 📄 Create a file called `.env` at root level
+1. 📄 Create a file called `.env` in 📁 `/backend`
     - ❕ View example file [.env.example](.env.example)
 2. Add your **password**, **username**, etc., 
 
 > ⚠️ This file is personal and will **not** be pushed to GitHub!
 
 ### 2. 📦 Create docker containers  
-- Run `docker-compose up -d`  
+1. Ensure you're in the 📁 `/backend` folder (terminal) 
+    - `cd backend`   
+2. Run `docker-compose up -d`  
 
 ### 3. 🏃 Run application
-
-1. Run `mvnw spring-boot:run` from root folder
-2. Go to  [http://localhost:8080/welcome/yourname](http://localhost:8080/welcome/yourname)
-3. Web browser should display: `Welcome <yourname>! 😃`
+1. Ensure you're in the 📁 `/backend` folder (in terminal) 
+    - `cd backend`
+2. Run `mvnw spring-boot:run` 
+3. Go to  [http://localhost:8080/welcome/yourname](http://localhost:8080/welcome/yourname)
+4. Web browser should display: `Welcome <yourname>! 😃`
 
 ### 4. 🛢️ (Optional)  Run MySql directly
 1. Run `docker exec -it mySqlContainer bash`
 2. Run `mysql -uroot -p`
 3. Type in your password (see .env file)
 4. Run any SQL command directly
+
+## Run Frontend
+
+### 1. 📁 Enter the frontend folder (terminal)
+- `cd frontend` 
+
+### 2. 📦 Install npm libraries (terminal)
+- `npm install` 
+
+### 3. 🏃 Run application (terminal)
+- `npm run dev`
+    - Go to [http://localhost:3000/](http://localhost:3000/)
 
 ## Deployment
 <!-- TODO -->
