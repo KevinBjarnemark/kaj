@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 # Kaj
-=======
-Ändring från bådas branch
-
-# KaAj
->>>>>>> 1e4008a118b52cf8496910b5fe3722bc64922843
 
 ## Table of Contents
 
@@ -29,37 +23,42 @@
 
 ### 👮 Grupp regler
 - Skriv i gruppen innan du börjar med en feature 
-- ha en bra attityd A
+- Ha en bra attityd
+
+### 💡 Projekt ide `Celcioliter`     
+#### Info   
+- Appen håller koll på hur mycket du dricker och vilka dina fovoritdrycker är efter väder. 
+- Användaren skriver in hur mycket den konsumerar 
+- Poäng mäts efter alkohol och hur mycket du dricker. 
+    
+#### Komponenter
+- **Poängräknare**
+    - Vatten ger minuspoäng, ju högre alkoholhalt, desto mer poäng   
+- **Drinklista** 
+    - Lägg till dina favoritdrycker katigoriserat efter väder      
+- **Komponent** 
+    - Ge rekommendationer kopplat till ett väder API    
+- **Komponent** 
+    - Räkna live hur mycket du konsumerar    
 
 ### 🔨 Uppdrag (postitlappar)
 - ✔️ Maven
 - ✔️ Docker
 - ✔️ Frontend (NextJS)
-- ❌❕ Alla i gruppen har projektet implementerat   
+- ✔️ Alla i gruppen har projektet implementerat   
+    - ❌ Jakob?
+- ✔️ Git konflikter träning
 
-### 🔨 Kommande uppdrag
-- ❌ MySQL 
-    - ❌ Behöver använda MySql
-    - ❌ (CRUD)
-- ❌ API anrop
-    - ❌ Simple API call (weather, price, synonyms, etc.,)
-    - ❌ Modify the response 
-        - `Example:` *It's a cold day today, perfect weather for a brisk walk in the park!*
-- ❌ Creative / extra work
-
-### 💡 Projekt ideer
-- Väder applikation
-    - ❌ CRUD operationer blir svårt  
-    - ✔️ Behöver inte tänka på tidszoner    
-    - ❌ Vad kan man använda Javas standardbibliotek till? (hashmaps etc.,)
-- Veckoschema  
-    - ✔️ Lätt med CRUD operationer    
-    - ❌ Blir svårt med tidszoner   
-    - ✔️ Lätt att använda Javas standardbibliotek (hashmaps etc.,)
-- Fiktiva produkter 
-    - ✔️ Lätt med CRUD operationer   
-    - ✔️ Behöver inte tänka på tidszoner    
-    - ✔️ Lätt att använda Javas standardbibliotek (hashmaps etc.,)
+### 🔨 Pågående uppdrag
+- 👤 **Anton**
+    - ❌ Skapa en drinklista 
+    - ❌ Kommer behöva en databas tabell för alla drinkar (MySQL)
+- 👤 **Kevin**  
+    - ❌ Bygga frontend  
+- 👤 **Christoffer**   
+    - ❌ Alkohol till poäng system
+- 👤 **Jakob**
+    - ❌ 
 
 ### Kursmål
 - ❌ Ge exempel på hur `Javas standardbibliotek` kan användas för att lösa olika programmeringsuppgifter  
@@ -75,13 +74,6 @@
     - ❕ Denna är till för att experimentera, vi gör feature branches sen
 
 ## Git Cheatsheet
-
-### How to pull main
-- `git pull origin main`
-...
-...
-...
- 
 
 ### 🦾 Basics
 1. See which branch you're on
@@ -106,7 +98,7 @@
     - Create a pull request (GitHub)  
     - Wait for other team members to verify  
     - Merge into the main branch (via GitHub)  
-dgdgdg
+
 ## Introduction
 <!-- TODO -->
 
