@@ -23,7 +23,8 @@
 - Ta bort denna sektion innan presentation
 
 ### 👮 Grupp regler
-- Skriv i gruppen innan du börjar med en feature
+- Skriv i gruppen innan du börjar med en feature 
+- ha en bra attityd 
 
 ### 🔨 Uppdrag (postitlappar)
 - ✔️ Maven
