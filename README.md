@@ -1,5 +1,4 @@
-Ändring från kevin branchen test1
-# KaAj
+# Kaj
 
 ## Table of Contents
 
@@ -70,6 +69,13 @@
     - ❕ Denna är till för att experimentera, vi gör feature branches sen
 
 ## Git Cheatsheet
+
+### How to pull main
+- `git pull origin main`
+...
+...
+...
+ 
 
 ### 🦾 Basics
 1. See which branch you're on
