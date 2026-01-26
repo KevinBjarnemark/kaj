@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 # Kaj
+=======
+Ändring från bådas branch
+
+# KaAj
+>>>>>>> 1e4008a118b52cf8496910b5fe3722bc64922843
 
 ## Table of Contents
 
