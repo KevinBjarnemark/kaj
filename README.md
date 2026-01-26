@@ -24,7 +24,7 @@
 
 ### 👮 Grupp regler
 - Skriv i gruppen innan du börjar med en feature 
-- ha en bra attityd 
+- ha en bra attityd A
 
 ### 🔨 Uppdrag (postitlappar)
 - ✔️ Maven
