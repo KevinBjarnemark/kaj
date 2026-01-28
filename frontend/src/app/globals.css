@@ -1,42 +1,145 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+@font-face {
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lilita One";
+  src: url("/fonts/Lilita_One/Lilita_One-Regular.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Niramit", sans-serif;
+  text-align: left; /* Assuming this enhances compatability */
+  color: #9fa7ad;
+}
+
+nav {
+  z-index: 26;
+  text-align: center;
+  left: 0;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+header {
+  z-index: 15;
+  border: 0 transparent;
+  border-radius: var(--border-radius);
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: fit-content;
+  max-height: fit-content;
+  border: 0 transparent;
+}
+
+footer {
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  text-align: center;
+  border: 0 transparent;
+  border-radius: var(--border-radius);
+  background-color: #ffffff;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  border: 0 transparent;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+select {
+  border: 0 transparent;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input {
+  background-color: transparent;
+  border: 0 transparent;
+  outline: none;
+}
+
+textarea {
+  background-color: transparent;
+  margin: 0;
+  border: 0 transparent;
+  resize: none;
+  word-break: normal;
+  white-space: pre-wrap;
+  outline: none;
+  overflow: auto;
+  cursor: auto;
+}
+
+:disabled {
+  cursor: not-allowed !important;
 }

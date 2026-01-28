@@ -1,66 +1,68 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useState } from "react";
+import { appConstants } from "@/utils/constants/app-constants";
+
+import Link from "next/link";
+
+const EnterAppButton = () => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div className="flex-column-relative center w-100">
+      <Link
+        onMouseEnter={() => {
+          setHovered(true);
+        }}
+        onMouseLeave={() => {
+          setHovered(false);
+        }}
+        href="/"
+        rel="noopener noreferrer"
+        className="flex-column-relative w-100 text-center"
+        style={{
+          backgroundColor: hovered ? "#62f59bff" : "#ffffffff",
+          width: "30vw",
+          height: "10vw",
+          borderRadius: "20vh",
+          marginTop: "32px",
+          fontSize: "350%",
+          lineHeight: "10vw",
+          color: "#5a6367ff",
+          boxShadow: hovered
+            ? "0 0 8px 4px #8cf4b4ff"
+            : "0 0 4px 4px #636d70ff",
+          transform: `scale(${hovered ? 1.05 : 1})`,
+          transition: "transform 0.1s",
+        }}
+      >
+        Enter
+      </Link>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main
+      className="flex-column-relative w-100"
+      style={{
+        padding: "2vh 2vw",
+        backgroundColor: "#1b1d1eff",
+        minHeight: `calc(100vh - ${appConstants.dimensions.header.height}px)`,
+      }}
+    >
+      <div className="flex-column-relative w-100 text-center">
+        <h1 className="text-center" style={{ marginTop: "20px" }}>
+          Measure and{" "}
+          <span style={{ fontFamily: '"Lilita One", sans-serif' }}>
+            maximize
+          </span>{" "}
+          your drinking experience
+        </h1>
+
+        <EnterAppButton />
+      </div>
+    </main>
   );
 }
