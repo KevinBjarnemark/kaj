@@ -36,9 +36,9 @@
     - Vatten ger minuspoäng, ju högre alkoholhalt, desto mer poäng   
 - **Drinklista** 
     - Lägg till dina favoritdrycker katigoriserat efter väder      
-- **Komponent** 
+- **Väder rekommendationer** 
     - Ge rekommendationer kopplat till ett väder API    
-- **Komponent** 
+- **Mät konsumption** 
     - Räkna live hur mycket du konsumerar    
 
 ### 🔨 Uppdrag (postitlappar)
@@ -142,7 +142,7 @@
 - `cd frontend` 
 
 ### 2. 📦 Install npm libraries (terminal)
-- `npm install` 
+- `npm install` (you only have to do this once)
 
 ### 3. 🏃 Run application (terminal)
 - `npm run dev`
