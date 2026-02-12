@@ -9,7 +9,14 @@ const EnterAppButton = () => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className="flex-column-relative center w-100">
+    <div
+      className="flex-column-relative center w-100"
+      style={
+        {
+          /* backgroundColor: "#ffffff", */
+        }
+      }
+    >
       <Link
         onMouseEnter={() => {
           setHovered(true);
@@ -44,25 +51,24 @@ const EnterAppButton = () => {
 
 export default function Home() {
   return (
-    <main
-      className="flex-column-relative w-100"
+    <article
+      className="flex-column-relative w-100 justify-start"
       style={{
         padding: "2vh 2vw",
-        backgroundColor: "#1b1d1eff",
         minHeight: `calc(100vh - ${appConstants.dimensions.header.height}px)`,
       }}
     >
-      <div className="flex-column-relative w-100 text-center">
-        <h1 className="text-center" style={{ marginTop: "20px" }}>
+      <div className="flex-column-relative w-100 align-center justify-start">
+        {/*  <h1 className="text-center" style={{ marginTop: "20px" }}>
           Measure and{" "}
           <span style={{ fontFamily: '"Lilita One", sans-serif' }}>
             maximize
           </span>{" "}
           your drinking experience
-        </h1>
+        </h1> */}
 
-        <EnterAppButton />
+        {/*  <EnterAppButton /> */}
       </div>
-    </main>
+    </article>
   );
 }

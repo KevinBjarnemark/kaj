@@ -13,12 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className="flex-column-relative center w-100"
-        style={{
-          backgroundColor: "#749aaeff",
-        }}
-      >
+      <body className="flex-column-relative center w-100">
         <Header />
         <main
           className="flex-column-relative w-100"

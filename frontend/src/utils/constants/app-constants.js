@@ -1,5 +1,5 @@
 export const appConstants = {
-  appName: "Celcioliter",
+  appName: "Admin",
   dimensions: {
     header: {
       height: 88, // px
