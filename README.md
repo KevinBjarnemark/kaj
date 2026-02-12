@@ -31,9 +31,9 @@
 
 ### 📣 `Minimum krav` (grupp)
 - ❌ Inga kommentarer i koden       
-- ❌ (klar, men ej testad än) Minst en docker container (MySQL)       
+- ✔️ (klar, men ej testad än) Minst en docker container (MySQL)       
 - ❌ API (Spring Boot)      
-    - ❌ `POST` requests för att spara data i databasen   
+    - ✔️ `POST` requests för att spara data i databasen   
     - ❌ `CRUD` operationer mot MySql databasen  
 
 ### 📣 `Kursmål`   
@@ -57,16 +57,18 @@
 - ✔️ Landing page  
     - ✔️ Logo    
 - ❌ User API 
-    - ❌ Create user   
-    - ❌ Get user
-    - ❌ Update user  
-    - ❌ List users   
+    - ✔️ Create user   
+    - ✔️ Get all users   
+    - ❌ Get user    (by id)
+    - ❌ Update user (by id)
+    - ❌ Delete user (by id)
+
 
 ### 🔨 Pågående uppdrag  
 - 👤 **Anton**
     - ❌ 
 - 👤 **Kevin**  
-    - 🔨 Bygga frontend    
+    - ❌
 - 👤 **Christoffer**   
     - ❌ 
 - 👤 **Jakob**
@@ -117,8 +119,9 @@
 
 #### 1. 🔧 Configure environment variables
 1. 📄 Create a file called `.env` in 📁 `/backend`
-    - ❕ View example file [.env.example](backend/.env.example)
+    - ❕ View example file [.env.example](backend/.env.example)  
 2. Add your **password**, **username**, etc., 
+3. Do exactly the same but for the frontend
 
 > ⚠️ This file is personal and will **not** be pushed to GitHub!
 
