@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { appConstants } from "@/utils/constants/app-constants";
+import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -41,7 +41,7 @@ const Logo = () => {
       className="flex-column-relative start"
       style={{
         alignItems: "center",
-        height: `${appConstants.dimensions.header.height - 5}px`,
+        height: `${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT - 5}px`,
         width: "140px",
       }}
       onMouseEnter={() => {
@@ -54,7 +54,7 @@ const Logo = () => {
       <div
         className="flex-column-relative center"
         style={{
-          height: `${appConstants.dimensions.header.height * 0.65}px`,
+          height: `${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT * 0.65}px`,
           marginTop: "3px",
         }}
       >
@@ -107,7 +107,7 @@ const Header = () => {
     <header
       className="flex-column-fixed w-100 top-0"
       style={{
-        height: `${appConstants.dimensions.header.height}px`,
+        height: `${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px`,
         borderBottom: "4px solid #34383bff",
       }}
     >

@@ -1,4 +1,4 @@
-import { appConstants } from "@/utils/constants/app-constants";
+import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 
 export const metadata = {
   title: "About",
@@ -10,7 +10,7 @@ const About = () => {
       className="flex-column-relative w-100 justify-start"
       style={{
         padding: "2vh 2vw",
-        minHeight: `calc(100vh - ${appConstants.dimensions.header.height}px)`,
+        minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
       }}
     >
       <section className="flex-column-relative w-100 align-center justify-start">

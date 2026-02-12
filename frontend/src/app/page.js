@@ -1,50 +1,104 @@
 "use client";
+import { useContext, useEffect, useState } from "react";
+import { APP_CONSTANTS } from "@/utils/constants/app-constants";
+import ApiContext from "@/context/ApiContext";
+import style from "./page.module.css";
+import SubmitButton from "@/components/buttons/SubmitButton";
 
-import { useState } from "react";
-import { appConstants } from "@/utils/constants/app-constants";
+const CreateUserForm = () => {
+  const { createUser, loadingApi } = useContext(ApiContext);
 
-import Link from "next/link";
+  const [data, setData] = useState({
+    username: null,
+    email: null,
+    password: null,
+  });
 
-const EnterAppButton = () => {
-  const [hovered, setHovered] = useState(false);
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    createUser(data);
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
 
   return (
-    <div
-      className="flex-column-relative center w-100"
-      style={
-        {
-          /* backgroundColor: "#ffffff", */
-        }
-      }
-    >
-      <Link
-        onMouseEnter={() => {
-          setHovered(true);
+    <>
+      <h4>Create user</h4>
+
+      <input {...sharedProps} name="name" type="text" placeholder="Username" />
+      <input {...sharedProps} name="email" type="text" placeholder="Email" />
+      <input
+        {...sharedProps}
+        name="password"
+        type="password"
+        placeholder="Password"
+      />
+
+      <SubmitButton
+        {...{
+          props: {
+            onClick: handleSubmit,
+            disabled: loadingApi,
+          },
         }}
-        onMouseLeave={() => {
-          setHovered(false);
+      />
+    </>
+  );
+};
+
+const AdminActions = () => {
+  const { loadingApi, getAllUsers } = useContext(ApiContext);
+
+  return (
+    <>
+      <h4>Actions</h4>
+      <SubmitButton
+        {...{
+          props: {
+            onClick: getAllUsers,
+            disabled: loadingApi,
+          },
+          options: {
+            displayName: "Log all users",
+          },
         }}
-        href="/"
-        rel="noopener noreferrer"
-        className="flex-column-relative w-100 text-center"
-        style={{
-          backgroundColor: hovered ? "#62f59bff" : "#ffffffff",
-          width: "30vw",
-          height: "10vw",
-          borderRadius: "20vh",
-          marginTop: "32px",
-          fontSize: "350%",
-          lineHeight: "10vw",
-          color: "#5a6367ff",
-          boxShadow: hovered
-            ? "0 0 8px 4px #8cf4b4ff"
-            : "0 0 4px 4px #636d70ff",
-          transform: `scale(${hovered ? 1.05 : 1})`,
-          transition: "transform 0.1s",
-        }}
-      >
-        Enter
-      </Link>
+      />
+    </>
+  );
+};
+
+const AdminDashBoard = () => {
+  return (
+    <div className="flex-column-relative w-100 start">
+      <div className="flex-row-relative w-100">
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+            marginRight: "15vw",
+          }}
+        >
+          <CreateUserForm />
+        </div>
+
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+          }}
+        >
+          <AdminActions />
+        </div>
+      </div>
     </div>
   );
 };
@@ -55,20 +109,10 @@ export default function Home() {
       className="flex-column-relative w-100 justify-start"
       style={{
         padding: "2vh 2vw",
-        minHeight: `calc(100vh - ${appConstants.dimensions.header.height}px)`,
+        minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
       }}
     >
-      <div className="flex-column-relative w-100 align-center justify-start">
-        {/*  <h1 className="text-center" style={{ marginTop: "20px" }}>
-          Measure and{" "}
-          <span style={{ fontFamily: '"Lilita One", sans-serif' }}>
-            maximize
-          </span>{" "}
-          your drinking experience
-        </h1> */}
-
-        {/*  <EnterAppButton /> */}
-      </div>
+      <AdminDashBoard />
     </article>
   );
 }
