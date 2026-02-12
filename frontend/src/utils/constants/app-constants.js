@@ -1,8 +1,9 @@
-export const appConstants = {
-  appName: "Celcioliter",
-  dimensions: {
-    header: {
-      height: 88, // px
+export const APP_CONSTANTS = {
+  APP_NAME: "Admin",
+
+  DIMENSIONS: {
+    HEADER: {
+      HEIGHT: 88, // px
     },
   },
 };

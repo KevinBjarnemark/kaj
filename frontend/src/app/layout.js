@@ -1,32 +1,28 @@
 import "./globals.css";
 import "./utilities.css";
-import { appConstants } from "@/utils/constants/app-constants";
+import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Header from "@/components/layout/Header";
+import ApiProvider from "@/context/ApiProvider";
 
 export const metadata = {
   title: {
-    template: `%s | ${appConstants.appName}`,
-    default: `${appConstants.appName}`,
+    template: `%s | ${APP_CONSTANTS.APP_NAME}`,
+    default: `${APP_CONSTANTS.APP_NAME}`,
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className="flex-column-relative center w-100"
-        style={{
-          backgroundColor: "#749aaeff",
-        }}
-      >
+      <body className="flex-column-relative center w-100">
         <Header />
         <main
           className="flex-column-relative w-100"
           style={{
-            marginTop: `${appConstants.dimensions.header.height}px`,
+            marginTop: `${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px`,
           }}
         >
-          {children}
+          <ApiProvider>{children}</ApiProvider>
         </main>
       </body>
     </html>

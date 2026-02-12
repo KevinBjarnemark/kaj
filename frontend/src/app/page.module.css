@@ -1,6 +1,6 @@
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
+  --background: #2a2f32;
+  --foreground: #2a2f32;
 
   --text-primary: #000;
   --text-secondary: #666;
@@ -27,6 +27,15 @@
   justify-content: space-between;
   background-color: var(--foreground);
   padding: 120px 60px;
+}
+
+.input {
+  background-color: #474a4b;
+  border-radius: 4px;
+  padding: 0 6px;
+  color: #c1c8cd;
+  font-weight: 800;
+  margin-bottom: 5px;
 }
 
 .intro {

@@ -17,29 +17,35 @@
 
 ## Project Scope 
 
-### ⚠️ `INNAN PRESENTATION`
-- ❕❕ Ta bort kommentarer
-- Ta bort denna sektion innan presentation
-
 ### 👮 Grupp regler
 - Skriv i gruppen innan du börjar med en feature 
-- Ha en bra attityd
+- Ha en bra attityd   
 
-### 💡 Projekt ide `Celcioliter`     
-#### Info   
-- Appen håller koll på hur mycket du dricker och vilka dina fovoritdrycker är efter väder. 
-- Användaren skriver in hur mycket den konsumerar 
-- Poäng mäts efter alkohol och hur mycket du dricker. 
-    
-#### Komponenter
-- **Poängräknare**
-    - Vatten ger minuspoäng, ju högre alkoholhalt, desto mer poäng   
-- **Drinklista** 
-    - Lägg till dina favoritdrycker katigoriserat efter väder      
-- **Väder rekommendationer** 
-    - Ge rekommendationer kopplat till ett väder API    
-- **Mät konsumption** 
-    - Räkna live hur mycket du konsumerar    
+### 📣 `DEADLINE`
+- En stabil version måste finnas **ett par dagar** innan den `16 Mars`         
+- ❕ INGA ändringar i sista sekund
+
+### 📣 `Minimum krav` (individuellt)
+- ❕ Måste kunna förklara koden     
+- ❕ Måste kunna svara på frågor som rör tekniska lösningar    
+
+### 📣 `Minimum krav` (grupp)
+- ❌ Inga kommentarer i koden       
+- ✔️ (klar, men ej testad än) Minst en docker container (MySQL)       
+- ❌ API (Spring Boot)      
+    - ✔️ `POST` requests för att spara data i databasen   
+    - ❌ `CRUD` operationer mot MySql databasen  
+
+### 📣 `Kursmål`   
+- ❌ Ge exempel på hur `Javas standardbibliotek` kan användas för att lösa olika programmeringsuppgifter  
+    - ❌ Behöver arrayList, hashmaps, etc., 
+- ❌ Redogöra för hur olika ramverk kan använda för att lösa olika programmeringsuppgifter inom utveckling med Java
+- ❌ Redogöra för datakommunikation och utveckling av nätverksapplikationer
+- ❌ Redogöra för metoder och verktyg för att utveckla i en containermiljö
+- ❌ Redogöra för driftsättning av program/system
+- ❌ Redogöra för terminologi på engelska inom utveckling med Java
+
+### 💡 Projekt ide `Admin dashboard`    
 
 ### 🔨 Uppdrag (postitlappar)
 - ✔️ Maven
@@ -48,26 +54,25 @@
 - ✔️ Alla i gruppen har projektet implementerat   
     - ❌ Jakob?
 - ✔️ Git konflikter träning
+- ✔️ Landing page  
+    - ✔️ Logo    
+- ❌ User API 
+    - ✔️ Create user   
+    - ✔️ Get all users   
+    - ❌ Get user    (by id)
+    - ❌ Update user (by id)
+    - ❌ Delete user (by id)
 
-### 🔨 Pågående uppdrag
+
+### 🔨 Pågående uppdrag  
 - 👤 **Anton**
-    - ❌ Skapa en drinklista 
-    - ❌ Kommer behöva en databas tabell för alla drinkar (MySQL)
+    - ❌ 
 - 👤 **Kevin**  
-    - ❌ Bygga frontend  
+    - ❌
 - 👤 **Christoffer**   
-    - ❌ Alkohol till poäng system
+    - ❌ 
 - 👤 **Jakob**
     - ❌ 
-
-### Kursmål
-- ❌ Ge exempel på hur `Javas standardbibliotek` kan användas för att lösa olika programmeringsuppgifter  
-    - ❌ Behöver arrayList, hashmaps, etc., 
-- ❌ Redogöra för hur olika ramverk kan använda för att lösa olika programmeringsuppgifter inom utveckling med Java
-- ❌ Redogöra för datakommunikation och utveckling av nätverksapplikationer
-- ❌ Redogöra för metoder och verktyg för att utveckla i en containermiljö
-- ❌ Redogöra för driftsättning av program/system
-- ❌ Redogöra för terminologi på engelska inom utveckling med Java
 
 ### 🌿 Branches 
 - Alla har varsin branch efter dens namn
@@ -108,43 +113,48 @@
 ## API
 <!-- TODO -->
 
-## Run Backend
+## Run the App
 
-### 1. 🔧 Configure environment variables
+### Backend
+
+#### 1. 🔧 Configure environment variables
 1. 📄 Create a file called `.env` in 📁 `/backend`
-    - ❕ View example file [.env.example](backend/.env.example)
+    - ❕ View example file [.env.example](backend/.env.example)  
 2. Add your **password**, **username**, etc., 
+3. Do exactly the same but for the frontend
 
 > ⚠️ This file is personal and will **not** be pushed to GitHub!
 
-### 2. 📦 Create docker containers  
+#### 2. 📦 Create docker containers  
 1. Ensure you're in the 📁 `/backend` folder (terminal) 
     - `cd backend`   
 2. Run `docker-compose up -d`  
     - ⚠️ Run this in Ubunto terminal, if you're using WSL
+    - ❕ You only have to do this once
 
-### 3. 🏃 Run application
+#### 3. 🏃 Run application
 1. Ensure you're in the 📁 `/backend` folder (in terminal) 
     - `cd backend`
 2. Run `mvnw spring-boot:run` 
 3. Go to  [http://localhost:8080/welcome/yourname](http://localhost:8080/welcome/yourname)
 4. Web browser should display: `Welcome <yourname>! 😃`
 
-### 4. 🛢️ (Optional)  Run MySql directly
+#### 4. 🛢️ (Optional)  Run MySql directly
 1. Run `docker exec -it mySqlContainer bash`
 2. Run `mysql -uroot -p`
 3. Type in your password (see .env file)
 4. Run any SQL command directly
 
-## Run Frontend
+### Frontend
 
-### 1. 📁 Enter the frontend folder (terminal)
+#### 1. 📁 Enter the frontend folder (terminal)
 - `cd frontend` 
 
-### 2. 📦 Install npm libraries (terminal)
-- `npm install` (you only have to do this once)
+#### 2. 📦 Install npm libraries (terminal)
+- `npm install` 
+    - ❕ You only have to do this once   
 
-### 3. 🏃 Run application (terminal)
+#### 3. 🏃 Run application (terminal)
 - `npm run dev`
     - Go to [http://localhost:3000/](http://localhost:3000/)
 
