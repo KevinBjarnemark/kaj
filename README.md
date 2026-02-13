@@ -70,7 +70,7 @@
 - 👤 **Kevin**  
     - ❌
 - 👤 **Christoffer**   
-    - ❌ 
+    - ❌ Update user by id (endpoint)
 - 👤 **Jakob**
     - ❌ 
 
