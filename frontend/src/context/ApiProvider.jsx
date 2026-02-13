@@ -29,6 +29,49 @@ const ApiProvider = ({ children }) => {
     }
   };
 
+  const updateUser = async (data) => {
+    if (loadingApi) return;
+    setLoadingApi(true);
+    try {
+      const response = await fetch(usersEndPoint, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const parsedResponse = await response.json();
+
+      console.log("✉️ Response", parsedResponse);
+      return parsedResponse;
+    } finally {
+      setLoadingApi(false);
+    }
+  };
+
+  const getUserById = async (id) => {
+    if (loadingApi) return;
+    setLoadingApi(true);
+    try {
+      const response = await fetch(`${usersEndPoint}/${id}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+
+      const parsedResponse = await response.json();
+
+      console.log("✉️ Response", parsedResponse);
+      return parsedResponse;
+    } finally {
+      setLoadingApi(false);
+    }
+  };
+
   const getAllUsers = async () => {
     if (loadingApi) return;
     setLoadingApi(true);
@@ -51,7 +94,9 @@ const ApiProvider = ({ children }) => {
   };
 
   return (
-    <ApiContext.Provider value={{ loadingApi, createUser, getAllUsers }}>
+    <ApiContext.Provider
+      value={{ loadingApi, createUser, getAllUsers, updateUser, getUserById }}
+    >
       {children}
     </ApiContext.Provider>
   );
