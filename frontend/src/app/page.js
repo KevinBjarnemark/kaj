@@ -109,6 +109,44 @@ const GetUserByIdForm = () => {
   );
 };
 
+const DeleteUserByIdForm = () => {
+  const { deleteUserById, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    id: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Delete user</h4>
+
+      <input {...sharedProps} name="id" type="number" placeholder="ID" />
+      <SubmitButton
+        {...{
+          props: {
+            onClick: () => {
+              deleteUserById(data.id);
+            },
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
 const CreateUserForm = () => {
   const { createUser, loadingApi } = useContext(ApiContext);
 
@@ -181,6 +219,8 @@ const AdminActions = () => {
 };
 
 const AdminDashBoard = () => {
+  const spacing = "38px";
+
   return (
     <div className="flex-column-relative w-100 start">
       <div className="flex-row-relative w-100">
@@ -207,7 +247,7 @@ const AdminDashBoard = () => {
       <div
         className="flex-row-relative w-100"
         style={{
-          marginTop: "50px",
+          marginTop: spacing,
         }}
       >
         <div
@@ -227,6 +267,31 @@ const AdminDashBoard = () => {
           }}
         >
           <GetUserByIdForm />
+        </div>
+      </div>
+      <div
+        className="flex-row-relative w-100"
+        style={{
+          marginTop: spacing,
+        }}
+      >
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+            marginRight: "15vw",
+          }}
+        >
+          <DeleteUserByIdForm />
+        </div>
+
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+          }}
+        >
+          {/* EMPTY SPOT */}
         </div>
       </div>
     </div>
