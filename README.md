@@ -37,13 +37,12 @@
     - ❌ `CRUD` operationer mot MySql databasen  
 
 ### 📣 `Kursmål`   
-- ❌ Ge exempel på hur `Javas standardbibliotek` kan användas för att lösa olika programmeringsuppgifter  
-    - ❌ Behöver arrayList, hashmaps, etc., 
-- ❌ Redogöra för hur olika ramverk kan använda för att lösa olika programmeringsuppgifter inom utveckling med Java
-- ❌ Redogöra för datakommunikation och utveckling av nätverksapplikationer
-- ❌ Redogöra för metoder och verktyg för att utveckla i en containermiljö
-- ❌ Redogöra för driftsättning av program/system
-- ❌ Redogöra för terminologi på engelska inom utveckling med Java
+- ❕ Ge exempel på hur `Javas standardbibliotek` kan användas för att lösa olika programmeringsuppgifter  
+- ❕ Redogöra för hur olika ramverk kan använda för att lösa olika programmeringsuppgifter inom utveckling med Java 
+- ❕ Redogöra för datakommunikation och utveckling av nätverksapplikationer
+- ❕ Redogöra för metoder och verktyg för att utveckla i en containermiljö
+- ❕ Redogöra för driftsättning av program/system
+- ❕ Redogöra för terminologi på engelska inom utveckling med Java
 
 ### 💡 Projekt ide `Admin dashboard`    
 
@@ -130,7 +129,6 @@
     - `cd backend`   
 2. Run `docker-compose up -d`  
     - ⚠️ Run this in Ubunto terminal, if you're using WSL
-    - ❕ You only have to do this once
 
 #### 3. 🏃 Run application
 1. Ensure you're in the 📁 `/backend` folder (in terminal) 
@@ -174,15 +172,4 @@
 <!-- TODO -->
 
 ## References
-
-
-
-
-
-
-  
-
-
-
-
 

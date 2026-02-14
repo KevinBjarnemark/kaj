@@ -33,13 +33,15 @@ const ApiProvider = ({ children }) => {
     if (loadingApi) return;
     setLoadingApi(true);
     try {
-      const response = await fetch(usersEndPoint, {
+      const { id, ...rest } = data;
+
+      const response = await fetch(`${usersEndPoint}/${id}`, {
         method: "PUT",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(rest),
       });
 
       const parsedResponse = await response.json();
