@@ -5,6 +5,148 @@ import ApiContext from "@/context/ApiContext";
 import style from "./page.module.css";
 import SubmitButton from "@/components/buttons/SubmitButton";
 
+const UpdateUserForm = () => {
+  const { updateUser, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    id: null,
+    username: null,
+    email: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Update user</h4>
+
+      {/*     <div className="flex-row-relative w-100">
+        <input
+          {...sharedProps}
+          style={{ width: "60%", marginRight: "2%" }}
+          name="id"
+          type="number"
+          placeholder="ID"
+        />
+        <SubmitButton
+          {...{
+            props: {
+              onClick: () => {
+                updateUser(data);
+              },
+              style: { width: "37%" },
+              disabled: loadingApi,
+            },
+            options: {
+              displayName: "Load user",
+            },
+          }}
+        />
+      </div> */}
+
+      <input {...sharedProps} name="name" type="text" placeholder="Username" />
+      <input {...sharedProps} name="email" type="text" placeholder="Email" />
+
+      <SubmitButton
+        {...{
+          props: {
+            onClick: () => {
+              updateUser(data);
+            },
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
+const GetUserByIdForm = () => {
+  const { getUserById, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    id: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Get user</h4>
+
+      <input {...sharedProps} name="id" type="number" placeholder="ID" />
+      <SubmitButton
+        {...{
+          props: {
+            onClick: () => {
+              getUserById(data.id);
+            },
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
+const DeleteUserByIdForm = () => {
+  const { deleteUserById, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    id: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Delete user</h4>
+
+      <input {...sharedProps} name="id" type="number" placeholder="ID" />
+      <SubmitButton
+        {...{
+          props: {
+            onClick: () => {
+              deleteUserById(data.id);
+            },
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
 const CreateUserForm = () => {
   const { createUser, loadingApi } = useContext(ApiContext);
 
@@ -77,6 +219,8 @@ const AdminActions = () => {
 };
 
 const AdminDashBoard = () => {
+  const spacing = "38px";
+
   return (
     <div className="flex-column-relative w-100 start">
       <div className="flex-row-relative w-100">
@@ -97,6 +241,57 @@ const AdminDashBoard = () => {
           }}
         >
           <AdminActions />
+        </div>
+      </div>
+
+      <div
+        className="flex-row-relative w-100"
+        style={{
+          marginTop: spacing,
+        }}
+      >
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+            marginRight: "15vw",
+          }}
+        >
+          <UpdateUserForm />
+        </div>
+
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+          }}
+        >
+          <GetUserByIdForm />
+        </div>
+      </div>
+      <div
+        className="flex-row-relative w-100"
+        style={{
+          marginTop: spacing,
+        }}
+      >
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+            marginRight: "15vw",
+          }}
+        >
+          <DeleteUserByIdForm />
+        </div>
+
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+          }}
+        >
+          {/* EMPTY SPOT */}
         </div>
       </div>
     </div>
