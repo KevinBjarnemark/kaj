@@ -2,6 +2,7 @@ package edu.jensen.kaj.service;
 
 import java.util.List;
 
+import edu.jensen.kaj.exception.UserNotFoundException;
 import org.springframework.stereotype.Service;
 
 import edu.jensen.kaj.entity.User;
@@ -27,6 +28,18 @@ public class UserService {
         User user = new User(email, username, password);
 
         // ❕ SQL INSERT happens automatically
+        return userRepository.save(user);
+    }
+    public User updateUser(Long id, String username, String email) {
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+
+        if (username != null) {
+            user.setUsername(username);
+        }
+        if (email != null) {
+            user.setEmail(email);
+        }
+
         return userRepository.save(user);
     }
 

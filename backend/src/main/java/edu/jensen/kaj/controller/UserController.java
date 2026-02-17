@@ -5,12 +5,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import edu.jensen.kaj.dto.UserResponse;
 import edu.jensen.kaj.entity.User;
@@ -45,6 +40,26 @@ public class UserController {
                 createdUser.getCreatedAt());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id,
+                                                   @RequestBody User user) {
+        try {
+            User updated = userService.updateUser(id,
+                    user.getUsername(),
+                    user.getEmail());
+
+            UserResponse response = new UserResponse(
+                    updated.getId(),
+                    updated.getUsername(),
+                    updated.getEmail(),
+                    updated.getCreatedAt());
+
+            return ResponseEntity.ok(response);
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // Get All users
