@@ -1,4 +1,4 @@
-package edu.jensen.kaj.api.controller;
+package edu.jensen.kaj.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

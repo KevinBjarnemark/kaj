@@ -1,66 +1,313 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import { useContext, useEffect, useState } from "react";
+import { APP_CONSTANTS } from "@/utils/constants/app-constants";
+import ApiContext from "@/context/ApiContext";
+import style from "./page.module.css";
+import SubmitButton from "@/components/buttons/SubmitButton";
+
+const UpdateUserForm = () => {
+  const { updateUser, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    id: null,
+    username: null,
+    email: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Update user</h4>
+
+      {/*     <div className="flex-row-relative w-100">
+        <input
+          {...sharedProps}
+          style={{ width: "60%", marginRight: "2%" }}
+          name="id"
+          type="number"
+          placeholder="ID"
+        />
+        <SubmitButton
+          {...{
+            props: {
+              onClick: () => {
+                updateUser(data);
+              },
+              style: { width: "37%" },
+              disabled: loadingApi,
+            },
+            options: {
+              displayName: "Load user",
+            },
+          }}
+        />
+      </div> */}
+
+      <input {...sharedProps} name="name" type="text" placeholder="Username" />
+      <input {...sharedProps} name="email" type="text" placeholder="Email" />
+
+      <SubmitButton
+        {...{
+          props: {
+            onClick: () => {
+              updateUser(data);
+            },
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
+const GetUserByIdForm = () => {
+  const { getUserById, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    id: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Get user</h4>
+
+      <input {...sharedProps} name="id" type="number" placeholder="ID" />
+      <SubmitButton
+        {...{
+          props: {
+            onClick: () => {
+              getUserById(data.id);
+            },
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
+const DeleteUserByIdForm = () => {
+  const { deleteUserById, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    id: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Delete user</h4>
+
+      <input {...sharedProps} name="id" type="number" placeholder="ID" />
+      <SubmitButton
+        {...{
+          props: {
+            onClick: () => {
+              deleteUserById(data.id);
+            },
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
+const CreateUserForm = () => {
+  const { createUser, loadingApi } = useContext(ApiContext);
+
+  const [data, setData] = useState({
+    username: null,
+    email: null,
+    password: null,
+  });
+
+  const handleChange = (e) => {
+    setData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    createUser(data);
+  };
+
+  const sharedProps = {
+    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    onChange: handleChange,
+  };
+
+  return (
+    <>
+      <h4>Create user</h4>
+
+      <input {...sharedProps} name="name" type="text" placeholder="Username" />
+      <input {...sharedProps} name="email" type="text" placeholder="Email" />
+      <input
+        {...sharedProps}
+        name="password"
+        type="password"
+        placeholder="Password"
+      />
+
+      <SubmitButton
+        {...{
+          props: {
+            onClick: handleSubmit,
+            disabled: loadingApi,
+          },
+        }}
+      />
+    </>
+  );
+};
+
+const AdminActions = () => {
+  const { loadingApi, getAllUsers } = useContext(ApiContext);
+
+  return (
+    <>
+      <h4>Actions</h4>
+      <SubmitButton
+        {...{
+          props: {
+            onClick: getAllUsers,
+            disabled: loadingApi,
+          },
+          options: {
+            displayName: "Log all users",
+          },
+        }}
+      />
+    </>
+  );
+};
+
+const AdminDashBoard = () => {
+  const spacing = "38px";
+
+  return (
+    <div className="flex-column-relative w-100 start">
+      <div className="flex-row-relative w-100">
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+            marginRight: "15vw",
+          }}
+        >
+          <CreateUserForm />
+        </div>
+
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+          }}
+        >
+          <AdminActions />
+        </div>
+      </div>
+
+      <div
+        className="flex-row-relative w-100"
+        style={{
+          marginTop: spacing,
+        }}
+      >
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+            marginRight: "15vw",
+          }}
+        >
+          <UpdateUserForm />
+        </div>
+
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+          }}
+        >
+          <GetUserByIdForm />
+        </div>
+      </div>
+      <div
+        className="flex-row-relative w-100"
+        style={{
+          marginTop: spacing,
+        }}
+      >
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+            marginRight: "15vw",
+          }}
+        >
+          <DeleteUserByIdForm />
+        </div>
+
+        <div
+          className="flex-column-relative center"
+          style={{
+            width: "45vw",
+          }}
+        >
+          {/* EMPTY SPOT */}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <article
+      className="flex-column-relative w-100 justify-start"
+      style={{
+        padding: "2vh 2vw",
+        minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
+      }}
+    >
+      <AdminDashBoard />
+    </article>
   );
 }
