@@ -30,15 +30,15 @@ const UpdateUserForm = () => {
     <>
       <h4>Update user</h4>
 
-      {/*     <div className="flex-row-relative w-100">
-        <input
-          {...sharedProps}
-          style={{ width: "60%", marginRight: "2%" }}
-          name="id"
-          type="number"
-          placeholder="ID"
-        />
-        <SubmitButton
+      {/*     <div className="flex-row-relative w-100"> */}
+      <input
+        {...sharedProps}
+        style={{ width: "60%", marginRight: "2%" }}
+        name="id"
+        type="number"
+        placeholder="ID"
+      />
+      {/* <SubmitButton
           {...{
             props: {
               onClick: () => {
@@ -52,9 +52,14 @@ const UpdateUserForm = () => {
             },
           }}
         />
-      </div> */}
+      </div>  */}
 
-      <input {...sharedProps} name="name" type="text" placeholder="Username" />
+      <input
+        {...sharedProps}
+        name="username"
+        type="text"
+        placeholder="Username"
+      />
       <input {...sharedProps} name="email" type="text" placeholder="Email" />
 
       <SubmitButton
