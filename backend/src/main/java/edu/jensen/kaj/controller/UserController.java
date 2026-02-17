@@ -1,5 +1,6 @@
 package edu.jensen.kaj.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,12 @@ public class UserController {
                 user.getUsername(),
                 user.getPassword());
 
-        UserResponse response = UserResponse.from(createdUser);
+        UserResponse response = new UserResponse(
+                createdUser.getId(),
+                createdUser.getEmail(),
+                createdUser.getUsername(),
+                createdUser.getCreatedAt());
+
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -45,7 +51,16 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<UserResponse>> getUserAllUsers() {
         List<User> users = userService.getAllUsers();
-        List<UserResponse> response = users.stream().map(UserResponse::from).toList();
+
+        List<UserResponse> response = new ArrayList<>();
+        for (User user : users) {
+            response.add(new UserResponse(
+                    user.getId(),
+                    user.getEmail(),
+                    user.getUsername(),
+                    user.getCreatedAt()));
+        }
+
         return ResponseEntity.ok(response);
     }
 }

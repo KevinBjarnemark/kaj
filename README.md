@@ -131,11 +131,13 @@
     - ⚠️ Run this in Ubunto terminal, if you're using WSL
 
 #### 3. 🏃 Run application
-1. Ensure you're in the 📁 `/backend` folder (in terminal) 
-    - `cd backend`
-2. Run `mvnw spring-boot:run` 
-3. Go to  [http://localhost:8080/welcome/yourname](http://localhost:8080/welcome/yourname)
-4. Web browser should display: `Welcome <yourname>! 😃`
+1. Ensure you're in the 📁 `/backend` folder (in both CMD and WSL) 
+    - `cd backend`  
+2. 
+    - Run `docker-compose up -d` (in WSL)   
+3. Run `mvnw spring-boot:run` (in CMD)
+4. Go to  [http://localhost:8080/welcome/yourname](http://localhost:8080/welcome/yourname)
+5. Web browser should display: `Welcome <yourname>! 😃`
 
 #### 4. 🛢️ (Optional)  Run MySql directly
 1. Run `docker exec -it mySqlContainer bash`
