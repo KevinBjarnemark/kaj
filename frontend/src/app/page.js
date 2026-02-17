@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import ApiContext from "@/context/ApiContext";
 import style from "./page.module.css";
@@ -181,7 +181,12 @@ const CreateUserForm = () => {
     <>
       <h4>Create user</h4>
 
-      <input {...sharedProps} name="name" type="text" placeholder="Username" />
+      <input
+        {...sharedProps}
+        name="username"
+        type="text"
+        placeholder="Username"
+      />
       <input {...sharedProps} name="email" type="text" placeholder="Email" />
       <input
         {...sharedProps}
@@ -204,21 +209,71 @@ const CreateUserForm = () => {
 
 const AdminActions = () => {
   const { loadingApi, getAllUsers } = useContext(ApiContext);
+  const [users, setUsers] = useState([]);
+
+  const handleClick = async () => {
+    const fetchedUsers = await getAllUsers();
+    setUsers(fetchedUsers);
+  };
+
+  const rowMargin = "2px 5px 2px 0";
 
   return (
     <>
-      <h4>Actions</h4>
+      <h4>Users</h4>
       <SubmitButton
         {...{
           props: {
-            onClick: getAllUsers,
+            onClick: handleClick,
             disabled: loadingApi,
           },
           options: {
-            displayName: "Log all users",
+            displayName: "Show usernames",
           },
         }}
       />
+
+      <div
+        className="flex-column-relative w-100"
+        style={{
+          height: "200px",
+          overflowY: "auto",
+          backgroundColor: "#212324ff",
+          padding: "0 8px",
+        }}
+      >
+        {users.map((i) => (
+          <div key={i.id} className="flex-row-relative">
+            <div
+              className="flex-column-row shape-soft text-center"
+              style={{
+                backgroundColor: "#3b3d3eff",
+                minWidth: "28px",
+                padding: "0 5px",
+                margin: rowMargin,
+                color: "#989fa1ff",
+              }}
+            >
+              <span style={{ fontSize: "12px", color: "#585c5eff" }}>#</span>
+              {i.id}
+            </div>
+
+            <div
+              className="flex-column-row shape-soft text-center"
+              style={{
+                margin: rowMargin,
+                fontWeight: "800",
+                fontFamily: '"Lilita One", sans-serif',
+                padding: "0 5px",
+                color: "#b3bbbeff",
+                lineHeight: "30px",
+              }}
+            >
+              {i.username}
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
