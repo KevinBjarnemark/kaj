@@ -95,13 +95,13 @@
     - Merge into the main branch (via GitHub)  
 
 ## Introduction
-<!-- TODO -->
+
 
 ## Features
-<!-- TODO -->
+
 
 ## API
-<!-- TODO -->
+
 
 ## Run the App
 
@@ -150,19 +150,17 @@
     - Go to [http://localhost:3000/](http://localhost:3000/)
 
 ## Deployment
-<!-- TODO -->
+
 
 ## Known Issues
-<!-- TODO -->
+
 
 ## Testing
-<!-- TODO -->
 
 ## Code Documentation
-<!-- TODO -->
+
 
 ## Credits
-<!-- TODO -->
 
 ## References
 

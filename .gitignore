@@ -1,17 +1,13 @@
 
-# Local developer scratch space
 scratch/
 
-# Environment variables
 .env
 .env.local
 *.env
 
-### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
 
-### VS Code ###
 .vscode/

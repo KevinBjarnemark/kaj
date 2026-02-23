@@ -12,20 +12,16 @@ import edu.jensen.kaj.entity.User;
 import edu.jensen.kaj.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "${FRONTEND_URL}") // ❕ Allow CORS on localhost (.env)
+@CrossOrigin(origins = "${FRONTEND_URL}")
 @RequestMapping("/users")
 public class UserController {
 
-    // ❕ Real DI is recommended (almost always)
-    // - Immutability - field can be set to final
-    // - 5 Second vs 30 second test (does not need Spring)
     private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    // Create new user
     @PostMapping
     public ResponseEntity<UserResponse> createUser(@RequestBody User user) {
         User createdUser = userService.createUser(
@@ -42,7 +38,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    // Get user by id
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
         User user = userService.getUserById(id);
@@ -71,7 +66,6 @@ public class UserController {
         }
     }
 
-    // Get All users
     @GetMapping
     public ResponseEntity<List<UserResponse>> getUserAllUsers() {
         List<User> users = userService.getAllUsers();
@@ -88,7 +82,6 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
-    // Delete user
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         try {
