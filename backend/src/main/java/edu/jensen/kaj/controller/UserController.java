@@ -40,7 +40,15 @@ public class UserController {
                 createdUser.getCreatedAt());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
-    }
+    }  
+    // Get user by id
+@GetMapping("/{id}")
+public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+    User user = userService.getUserById(id);
+    UserResponse response = new UserResponse(id, user.getEmail(), user.getUsername(), user.getCreatedAt());
+    return ResponseEntity.ok(response);
+}
+
     @PutMapping("/{id}")
     public ResponseEntity<UserResponse> updateUser(@PathVariable Long id,
                                                    @RequestBody User user) {
