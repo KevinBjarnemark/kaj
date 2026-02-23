@@ -61,14 +61,14 @@
 - ❌ User API 
     - ✔️ Create user   
     - ✔️ Get all users   
-    - ❌ Get user    (by id)
+    - ✔️ Get user    (by id)
     - ✔️ Update user (by id) 
     - ❌ Delete user (by id)
 
 
 ### 🔨 Pågående uppdrag  
 - 👤 **Anton**
-    - ❌ Get user by id  
+    - ❌ 
 - 👤 **Kevin**  
     - ❌ 
 - 👤 **Christoffer**   
