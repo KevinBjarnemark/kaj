@@ -40,18 +40,19 @@ public class UserController {
                 createdUser.getCreatedAt());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
-    }  
+    }
+
     // Get user by id
-@GetMapping("/{id}")
-public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
-    User user = userService.getUserById(id);
-    UserResponse response = new UserResponse(id, user.getEmail(), user.getUsername(), user.getCreatedAt());
-    return ResponseEntity.ok(response);
-}
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        UserResponse response = new UserResponse(id, user.getEmail(), user.getUsername(), user.getCreatedAt());
+        return ResponseEntity.ok(response);
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<UserResponse> updateUser(@PathVariable Long id,
-                                                   @RequestBody User user) {
+            @RequestBody User user) {
         try {
             User updated = userService.updateUser(id,
                     user.getUsername(),
@@ -86,4 +87,17 @@ public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
 
         return ResponseEntity.ok(response);
     }
+
+    // Delete user
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity.noContent().build();
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
