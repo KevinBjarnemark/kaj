@@ -26,10 +26,16 @@ public class UserService {
 
         // Create user object
         User user = new User(email, username, password);
-
         // ❕ SQL INSERT happens automatically
         return userRepository.save(user);
     }
+
+    // Get user by id
+    public User getUserById(Long id) {
+        // ❕ SELECT * FROM users WHERE id = ?
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    }
+
     public User updateUser(Long id, String username, String email) {
         User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
 
