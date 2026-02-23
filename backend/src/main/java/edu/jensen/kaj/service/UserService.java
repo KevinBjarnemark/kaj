@@ -30,14 +30,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // Get user by id
     public User getUserById(Long id) {
-        // ❕ SELECT * FROM users WHERE id = ?
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    public User updateUser(Long id, String username, String email) {
-        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    public User updateUserById(Long id, String username, String email) {
+        User user = getUserById(id);
 
         if (username != null) {
             user.setUsername(username);
@@ -56,7 +54,7 @@ public class UserService {
     }
 
     // Delete user
-    public void deleteUser(Long id) {
+    public void deleteUserById(Long id) {
         // Verify that user exist
         getUserById(id);
 

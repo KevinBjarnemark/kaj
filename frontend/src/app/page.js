@@ -5,8 +5,8 @@ import ApiContext from "@/context/ApiContext";
 import style from "./page.module.css";
 import SubmitButton from "@/components/buttons/SubmitButton";
 
-const UpdateUserForm = () => {
-  const { updateUser, loadingApi } = useContext(ApiContext);
+const UpdateUserByIdForm = () => {
+  const { updateUserById, loadingApi } = useContext(ApiContext);
 
   const [data, setData] = useState({
     id: null,
@@ -42,7 +42,7 @@ const UpdateUserForm = () => {
           {...{
             props: {
               onClick: () => {
-                updateUser(data);
+                updateUserById(data);
               },
               style: { width: "37%" },
               disabled: loadingApi,
@@ -66,7 +66,7 @@ const UpdateUserForm = () => {
         {...{
           props: {
             onClick: () => {
-              updateUser(data);
+              updateUserById(data);
             },
             disabled: loadingApi,
           },
@@ -317,7 +317,7 @@ const AdminDashBoard = () => {
             marginRight: "15vw",
           }}
         >
-          <UpdateUserForm />
+          <UpdateUserByIdForm />
         </div>
 
         <div

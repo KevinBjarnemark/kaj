@@ -51,10 +51,10 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id,
+    public ResponseEntity<UserResponse> updateUserById(@PathVariable Long id,
             @RequestBody User user) {
         try {
-            User updated = userService.updateUser(id,
+            User updated = userService.updateUserById(id,
                     user.getUsername(),
                     user.getEmail());
 
@@ -90,9 +90,9 @@ public class UserController {
 
     // Delete user
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         try {
-            userService.deleteUser(id);
+            userService.deleteUserById(id);
             return ResponseEntity.noContent().build();
 
         } catch (RuntimeException e) {
