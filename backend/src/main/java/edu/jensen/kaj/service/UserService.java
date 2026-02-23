@@ -55,4 +55,13 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    // Delete user
+    public void deleteUser(Long id) {
+        // Verify that user exist
+        getUserById(id);
+
+        // ❕ DELETE FROM users WHERE id = ?
+        userRepository.deleteById(id);
+    }
+
 }

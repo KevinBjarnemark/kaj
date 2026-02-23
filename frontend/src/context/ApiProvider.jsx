@@ -86,7 +86,7 @@ const ApiProvider = ({ children }) => {
         },
       });
 
-      const parsedResponse = await response.json();
+      const parsedResponse = response;
 
       console.log("✉️ Response", parsedResponse);
       return parsedResponse;
