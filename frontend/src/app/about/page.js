@@ -26,9 +26,9 @@ const About = () => {
         }}
       >
         <p>
-          This is an MVP project for managing platforms as an admin. The project
-          allows you to manage users, perform database operations, view logging,
-          and use admin tools.
+          This is a experimental project for managing platforms as an admin. The
+          project allows you to manage users, perform database operations, view
+          logging, and use admin tools.
         </p>
       </section>
     </article>

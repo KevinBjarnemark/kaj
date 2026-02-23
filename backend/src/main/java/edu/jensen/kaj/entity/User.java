@@ -24,17 +24,15 @@ public class User {
     private String username;
 
     @Column(nullable = false)
-    private String password; // ⚠️ Sensitive field
+    private String password;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    // ❕ No-arg constructor for JPA
     public User() {
 
     }
 
-    // ❕ Constructor for creating NEW users (exclude ID, it auto-increments)
     public User(String email, String username, String password) {
         this.email = email;
         this.username = username;
@@ -42,7 +40,6 @@ public class User {
         this.createdAt = LocalDateTime.now();
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -16,28 +16,22 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    // Create a new user
     public User createUser(String email, String username, String password) {
 
-        // Check if email already exists
         if (userRepository.existsByEmail(email)) {
             throw new RuntimeException("Email already exists: " + email);
         }
 
-        // Create user object
         User user = new User(email, username, password);
-        // ❕ SQL INSERT happens automatically
         return userRepository.save(user);
     }
 
-    // Get user by id
     public User getUserById(Long id) {
-        // ❕ SELECT * FROM users WHERE id = ?
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    public User updateUser(Long id, String username, String email) {
-        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    public User updateUserById(Long id, String username, String email) {
+        User user = getUserById(id);
 
         if (username != null) {
             user.setUsername(username);
@@ -49,18 +43,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // Get all users
     public List<User> getAllUsers() {
-        // ❕ SELECT * FROM users
         return userRepository.findAll();
     }
 
-    // Delete user
-    public void deleteUser(Long id) {
-        // Verify that user exist
+    public void deleteUserById(Long id) {
         getUserById(id);
-
-        // ❕ DELETE FROM users WHERE id = ?
         userRepository.deleteById(id);
     }
 

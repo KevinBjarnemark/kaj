@@ -29,7 +29,7 @@ const ApiProvider = ({ children }) => {
     }
   };
 
-  const updateUser = async (data) => {
+  const updateUserById = async (data) => {
     if (loadingApi) return;
     setLoadingApi(true);
     try {
@@ -122,7 +122,7 @@ const ApiProvider = ({ children }) => {
         loadingApi,
         createUser,
         getAllUsers,
-        updateUser,
+        updateUserById,
         getUserById,
         deleteUserById,
       }}

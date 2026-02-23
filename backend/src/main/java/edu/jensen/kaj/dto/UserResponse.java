@@ -7,7 +7,6 @@ public class UserResponse {
     private String email;
     private String username;
     private LocalDateTime createdAt;
-    // ⚠️ password is EXCLUDED for security
 
     public UserResponse(Long id, String email, String username, LocalDateTime createdAt) {
         this.id = id;
@@ -16,7 +15,6 @@ public class UserResponse {
         this.createdAt = createdAt;
     }
 
-    // Getters only (DTOs are typically immutable)
     public Long getId() {
         return id;
     }
