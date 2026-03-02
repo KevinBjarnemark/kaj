@@ -49,14 +49,15 @@ public class UserController {
     public ResponseEntity<UserResponse> updateUserById(@PathVariable Long id,
             @RequestBody User user) {
         try {
-            User updated = userService.updateUserById(id,
+            User updated = userService.updateUserById(
+                    id,
                     user.getUsername(),
                     user.getEmail());
 
             UserResponse response = new UserResponse(
                     updated.getId(),
-                    updated.getUsername(),
                     updated.getEmail(),
+                    updated.getUsername(),
                     updated.getCreatedAt());
 
             return ResponseEntity.ok(response);
