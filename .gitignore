@@ -1,6 +1,8 @@
 
 scratch/
 
+/target/
+
 .env
 .env.local
 *.env
