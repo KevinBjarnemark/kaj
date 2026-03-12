@@ -7,8 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import edu.jensen.kaj.dto.UserResponse;
+import edu.jensen.kaj.dto.UserDto;
 import edu.jensen.kaj.entity.User;
+import edu.jensen.kaj.exception.UserNotFoundException;
 import edu.jensen.kaj.service.UserService;
 
 @RestController
@@ -23,13 +24,13 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody User user) {
+    public ResponseEntity<UserDto> createUser(@RequestBody User user) {
         User createdUser = userService.createUser(
                 user.getEmail(),
                 user.getUsername(),
                 user.getPassword());
 
-        UserResponse response = new UserResponse(
+        UserDto response = new UserDto(
                 createdUser.getId(),
                 createdUser.getEmail(),
                 createdUser.getUsername(),
@@ -39,14 +40,18 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
-        User user = userService.getUserById(id);
-        UserResponse response = new UserResponse(id, user.getEmail(), user.getUsername(), user.getCreatedAt());
-        return ResponseEntity.ok(response);
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
+        try {
+            User user = userService.getUserById(id);
+            UserDto response = new UserDto(id, user.getEmail(), user.getUsername(), user.getCreatedAt());
+            return ResponseEntity.ok(response);
+        } catch (UserNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<UserResponse> updateUserById(@PathVariable Long id,
+    @PatchMapping("/{id}")
+    public ResponseEntity<UserDto> updateUserById(@PathVariable Long id,
             @RequestBody User user) {
         try {
             User updated = userService.updateUserById(
@@ -54,7 +59,7 @@ public class UserController {
                     user.getUsername(),
                     user.getEmail());
 
-            UserResponse response = new UserResponse(
+            UserDto response = new UserDto(
                     updated.getId(),
                     updated.getEmail(),
                     updated.getUsername(),
@@ -68,12 +73,12 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserResponse>> getUserAllUsers() {
+    public ResponseEntity<List<UserDto>> getAllUsers() {
         List<User> users = userService.getAllUsers();
 
-        List<UserResponse> response = new ArrayList<>();
+        List<UserDto> response = new ArrayList<>();
         for (User user : users) {
-            response.add(new UserResponse(
+            response.add(new UserDto(
                     user.getId(),
                     user.getEmail(),
                     user.getUsername(),
