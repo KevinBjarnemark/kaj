@@ -36,7 +36,7 @@ const ApiProvider = ({ children }) => {
       const { id, ...rest } = data;
 
       const response = await fetch(`${usersEndPoint}/${id}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
