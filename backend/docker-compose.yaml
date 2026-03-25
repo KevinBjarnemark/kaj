@@ -9,4 +9,4 @@ services:
        - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
        - MYSQL_DATABASE=${DB_NAME}
      volumes:
-       - ~/Documents/DEV/dbfiles:/var/lib/mysql 
+       - ./dbdata:/var/lib/mysql 
